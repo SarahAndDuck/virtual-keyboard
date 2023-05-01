@@ -68,7 +68,12 @@
   background: #eadeda;
   border-radius: 3px;
   cursor: pointer;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-transition: border-radius 0.3s, background-color 0.3s;
+  -o-transition: border-radius 0.3s, background-color 0.3s;
   transition: border-radius 0.3s, background-color 0.3s;
 }
 
@@ -122,4 +127,4 @@
 
 .keyboard .Space {
   width: 330px;
-}
+}/*# sourceMappingURL=style.css.map */
