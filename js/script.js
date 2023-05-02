@@ -67,7 +67,9 @@ function keyClick(keyValue) {
     textarea.textContent = removed.join("");
     textarea.focus();
     textarea.selectionStart = textarea.selectionEnd = selectionStart;
-  } else if (keyValue == "Enter") {
+  }
+  //
+  else if (keyValue == "Enter") {
     let removedStart = textarea.textContent.split("");
     let removedEnd = textarea.textContent.split("");
 
@@ -86,7 +88,38 @@ function keyClick(keyValue) {
   ) {
     isSift = !isSift;
     shiftToggle();
-  } else {
+  }
+  //ArrowLeft
+  else if (keyValue == "ArrowLeft" || keyValue == "◄") {
+    if (selectionStart == 0) {
+      textarea.focus();
+      textarea.selectionStart = textarea.selectionEnd = 0;
+    } else {
+      textarea.focus();
+      textarea.selectionStart = textarea.selectionEnd = selectionStart - 1;
+    }
+  }
+  //ArrowRight
+  else if (keyValue == "ArrowRight" || keyValue == "►") {
+    textarea.focus();
+    textarea.selectionStart = textarea.selectionEnd = selectionStart + 1;
+  }
+  //ArrowUp
+  else if (keyValue == "ArrowUp" || keyValue == "▲") {
+    textarea.textContent += "▲";
+    textarea.focus();
+    textarea.selectionStart = textarea.selectionEnd =
+      textarea.textContent.length;
+  }
+  //ArrowDown
+  else if (keyValue == "ArrowDown" || keyValue == "▼") {
+    textarea.textContent += "▼";
+    textarea.focus();
+    textarea.selectionStart = textarea.selectionEnd =
+      textarea.textContent.length;
+  }
+  //
+  else {
     for (let i = 0; i < keyArr.length; i++) {
       if (
         keyValue == keyArr[i][0] ||
@@ -145,7 +178,6 @@ function virtKeyboardClickHandler(e) {
   keyClick(e.target.textContent);
 }
 function virtKeyboardMousedownHandler(e) {
-  console.log(e.target.textContent);
   if (e.target.textContent == "Shift") {
     isSift = !isSift;
     shiftToggle();
