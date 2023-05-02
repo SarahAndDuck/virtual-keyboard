@@ -145,7 +145,6 @@ function virtKeyboardClickHandler(e) {
   keyClick(e.target.textContent);
 }
 function virtKeyboardMousedownHandler(e) {
-  console.log(e.target.textContent);
   if (e.target.textContent == "Shift") {
     isSift = !isSift;
     shiftToggle();
